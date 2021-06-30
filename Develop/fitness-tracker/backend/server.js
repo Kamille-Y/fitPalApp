@@ -14,31 +14,30 @@ app.use(express.json());
 
 // this connects use to the database
 const uri = process.env.ATLAS_URI || 'mongodb://localhost/fitpalapp'
-// mongoose.connect(uri, {useNewUrlParser: true, useCreateIndex: true})
+mongoose.connect(uri, {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true })
 
-// const connection = mongoose.connection;
-// connection.once('open', ()=> {
-//     console.log("MongoDB database connection established succesfully");
+const connection = mongoose.connection;
+connection.once('open', ()=> {
+    console.log("MongoDB database connection established succesfully");
 
-// })
-//require and use the files 
-const connection = mongoose.connect(uri, {useNewUrlParser: true, useCreateIndex: True})
+})
+//require and use the files I set mongoose connect to a variable so that I can reuse it 
+// const connection = mongoose.connect(uri, {useNewUrlParser: true, useCreateIndex: true})
 
-const exerciseRouter = require('./routes/exercises');
-const userRouter = require('./routes/users');
+const exercisesRouter = require('./routes/exercises');
+const usersRouter = require('./routes/users');
 
-app.use('/exercises', exerciseRouter);
-app.use('/users', userRouter);
+app.use('/exercises', exercisesRouter);
+app.use('/users', usersRouter);
 
 // this allows for us to listen and start server 
 
-// app.listen(port, () => {
-//     console.log(`Server is running on Port: ${port}`);
-// });
-
-connection.once('open', ()=> {
-    console.log("MongoDB Connection established");
-    app.listen(port, () => {
-            console.log(`Server is running on Port: ${port}`);
-        });
+app.listen(port, () => {
+    console.log(`Server is running on Port: ${port}`);
 })
+
+// connection.once('open', ()=> {
+//     console.log("MongoDB Connection established");
+//     app.listen(port, () => {
+//             console.log(`Server is running on Port: ${port}`);
+//         });

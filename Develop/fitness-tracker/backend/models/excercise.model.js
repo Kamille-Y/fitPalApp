@@ -12,6 +12,7 @@ const exerciseSchema = new Schema({
   timestamps: true,
 });
 
+
 const Exercise = mongoose.model('Exercise', exerciseSchema);
 
 module.exports = Exercise;
