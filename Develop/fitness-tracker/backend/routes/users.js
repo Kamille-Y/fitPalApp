@@ -1,6 +1,6 @@
   // the route I created and model
 const router = require('express').Router();
-let User = require('../Develop/fitness-tracker/backend/models/user.model');
+let User = require('../models/user.model');
 // this handles http get request find is a method that returns a promise in Json format
 router.route('/').get((req, res) => {
   User.find()
