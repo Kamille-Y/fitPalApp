@@ -1,7 +1,7 @@
 const router = require('express').Router();
 let workout = require('../models/workouts.model');
 const path = require('path');
-let stats = require('../../public/stats')
+let stats = require('../../')
 // const { response } = require('express');
 
 router.route('/').get((req, res) => {
