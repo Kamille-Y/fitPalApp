@@ -2,7 +2,6 @@ const express = require('express');
 const cors = require('cors');
 const logger = require('morgan');
 const mongoose = require('mongoose');
-
 require('dotenv').config();
 
 const app = express();
@@ -43,8 +42,8 @@ connection.once('open', ()=> {
 
 // this allows for us to listen and start server 
 // routes
-app.use(require('./backend/routes/api'));
-app.use(require('./backend/routes/view'));
+app.use(require('./backend/routes/api.js'));
+app.use(require('./backend/routes/view.js'));
 
 
 
