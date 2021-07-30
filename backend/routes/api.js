@@ -1,6 +1,6 @@
   // the route I created and model
 const router = require('express').Router();
-let workout = require('../models/workouts.model');
+let Workout = require('../models/workoutsModel.js');
 // this handles http get request find is a method that returns a promise in Json format
 router.get("/api/workouts", (req, res) => {
   Workout.aggregate([
