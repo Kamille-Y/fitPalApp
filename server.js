@@ -24,24 +24,12 @@ mongoose.connect(uri, {useNewUrlParser: true, useCreateIndex: true, useUnifiedTo
 
 const connection = mongoose.connection;
 connection.once('open', ()=> {
-    // useNewUrlParser; true,
-    // useFindAndModify; false,
-    // useUnifiedTopology; true
+  
    
     console.log("MongoDB database connection established succesfully") 
   
 });
-//require and use the files I set mongoose connect to a variable so that I can reuse it 
-// const connection = mongoose.connect(uri, {useNewUrlParser: true, useCreateIndex: true})
 
-// const workoutRouter = require('./backend/routes/view');
-// const userRouter = require('./backend/routes/api');
-
-// app.use('./routes/workouts', workoutRouter);
-// app.use('./routes/users.js', userRouter);
-
-// this allows for us to listen and start server 
-// routes
 app.use(require('./backend/routes/api.js'));
 app.use(require('./backend/routes/view.js'));
 
